@@ -1,0 +1,169 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+
+    <div class="col-md-3 mb-3">
+
+        <div class="card shadow border-0">
+
+            <div class="card-body">
+
+                <h6>Total Vendors</h6>
+
+                <h2>12</h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3 mb-3">
+
+        <div class="card shadow border-0">
+
+            <div class="card-body">
+
+                <h6>Active RFQs</h6>
+
+                <h2>5</h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3 mb-3">
+
+        <div class="card shadow border-0">
+
+            <div class="card-body">
+
+                <h6>Pending Approvals</h6>
+
+                <h2>3</h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3 mb-3">
+
+        <div class="card shadow border-0">
+
+            <div class="card-body">
+
+                <h6>Invoices</h6>
+
+                <h2>7</h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="row mt-4">
+
+    <div class="col-md-8">
+
+        <div class="card shadow border-0">
+
+            <div class="card-header">
+
+                Recent Procurement Activities
+
+            </div>
+
+            <div class="card-body">
+
+                <table class="table">
+
+                    <thead>
+
+                        <tr>
+                            <th>ID</th>
+                            <th>Activity</th>
+                            <th>Status</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>RFQ001</td>
+                            <td>Laptop Purchase</td>
+                            <td>
+                                <span class="badge bg-success">
+                                    Approved
+                                </span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>RFQ002</td>
+                            <td>Office Chairs</td>
+                            <td>
+                                <span class="badge bg-warning">
+                                    Pending
+                                </span>
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="col-md-4">
+
+        <div class="card shadow border-0">
+
+            <div class="card-header">
+
+                Quick Actions
+
+            </div>
+
+            <div class="card-body d-grid gap-2">
+
+                <button class="btn btn-primary">
+                    Add Vendor
+                </button>
+
+                <button class="btn btn-success">
+                    Create RFQ
+                </button>
+
+                <button class="btn btn-warning">
+                    Compare Quotations
+                </button>
+
+                <button class="btn btn-danger">
+                    Generate Invoice
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
