@@ -29,7 +29,7 @@
                     <th>Vendor</th>
                     <th>RFQ</th>
                     <th>Status</th>
-
+                    <th>Download</th>
                 </tr>
 
             </thead>
@@ -77,7 +77,18 @@
                         </span>
 
                     </td>
+                    <td>
 
+                        <a href="/download_invoice/{{ invoice.id }}"
+                            class="btn btn-success btn-sm">
+
+                            <i class="fa-solid fa-download"></i>
+
+                            PDF
+
+                        </a>
+
+                    </td>
                 </tr>
 
                 {% endfor %}
