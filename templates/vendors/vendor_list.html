@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="d-flex justify-content-between mb-3">
+
+    <h2>Vendor Management</h2>
+
+    <a href="/add_vendor"
+       class="btn btn-primary">
+
+        Add Vendor
+
+    </a>
+
+</div>
+
+<div class="card shadow border-0">
+
+    <div class="card-body">
+
+        <table class="table table-hover">
+
+            <thead>
+
+                <tr>
+
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Category</th>
+                    <th>Status</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for vendor in vendors %}
+
+                <tr>
+
+                    <td>{{ vendor.id }}</td>
+
+                    <td>{{ vendor.vendor_name }}</td>
+
+                    <td>{{ vendor.email }}</td>
+
+                    <td>{{ vendor.phone }}</td>
+
+                    <td>{{ vendor.category }}</td>
+
+                    <td>
+
+                        <span class="badge bg-success">
+                            {{ vendor.status }}
+                        </span>
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+{% endblock %}

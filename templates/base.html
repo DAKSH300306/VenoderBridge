@@ -15,50 +15,67 @@
     <style>
 
         body{
-            background:#f4f6f9;
             margin:0;
-            font-family:Segoe UI, sans-serif;
+            background:#f4f6f9;
+            font-family:'Segoe UI',sans-serif;
         }
 
         .sidebar{
-            width:250px;
+            width:260px;
             height:100vh;
-            background:#1e293b;
+            background:#0f172a;
             position:fixed;
             left:0;
             top:0;
-            color:white;
+            overflow-y:auto;
         }
 
-        .sidebar h3{
-            padding:20px;
+        .logo{
+            color:white;
             text-align:center;
-            border-bottom:1px solid #334155;
+            font-size:24px;
+            font-weight:bold;
+            padding:20px;
+            border-bottom:1px solid #1e293b;
         }
 
         .sidebar a{
             display:block;
-            color:white;
+            color:#cbd5e1;
             text-decoration:none;
             padding:15px 20px;
-            transition:.3s;
+            transition:0.3s;
         }
 
         .sidebar a:hover{
-            background:#334155;
+            background:#1e293b;
+            color:white;
+        }
+
+        .sidebar i{
+            margin-right:10px;
         }
 
         .content{
-            margin-left:250px;
+            margin-left:260px;
             padding:25px;
         }
 
         .topbar{
             background:white;
-            padding:15px;
-            border-radius:10px;
-            margin-bottom:20px;
-            box-shadow:0 2px 8px rgba(0,0,0,.1);
+            border-radius:12px;
+            padding:15px 20px;
+            margin-bottom:25px;
+            box-shadow:0px 2px 10px rgba(0,0,0,0.08);
+        }
+
+        .topbar h4{
+            margin:0;
+        }
+
+        .card{
+            border:none;
+            border-radius:15px;
         }
 
     </style>
@@ -67,60 +84,69 @@
 
 <body>
 
-    <div class="sidebar">
+<div class="sidebar">
 
-        <h3>VendorBridge</h3>
-
-        <a href="/">
-            <i class="fa-solid fa-chart-line"></i>
-            Dashboard
-        </a>
-
-        <a href="#">
-            <i class="fa-solid fa-users"></i>
-            Vendors
-        </a>
-
-        <a href="#">
-            <i class="fa-solid fa-file-contract"></i>
-            RFQs
-        </a>
-
-        <a href="#">
-            <i class="fa-solid fa-file-invoice-dollar"></i>
-            Quotations
-        </a>
-
-        <a href="#">
-            <i class="fa-solid fa-check"></i>
-            Approvals
-        </a>
-
-        <a href="#">
-            <i class="fa-solid fa-cart-shopping"></i>
-            Purchase Orders
-        </a>
-
-        <a href="#">
-            <i class="fa-solid fa-receipt"></i>
-            Invoices
-        </a>
-
+    <div class="logo">
+        VendorBridge
     </div>
 
-    <div class="content">
+    <a href="/">
+        <i class="fa-solid fa-chart-line"></i>
+        Dashboard
+    </a>
 
-        <div class="topbar">
+    <a href="/vendors">
+        <i class="fa-solid fa-users"></i>
+        Vendors
+    </a>
 
-            <h4>VendorBridge Procurement ERP</h4>
+    <a href="/add_vendor">
+        <i class="fa-solid fa-user-plus"></i>
+        Add Vendor
+    </a>
 
-        </div>
+    <a href="/rfqs">
+        <i class="fa-solid fa-file-contract"></i>
+        RFQs
+    </a>
 
-        {% block content %}
-        {% endblock %}
+    <a href="/create_rfq">
+        <i class="fa-solid fa-plus"></i>
+        Create RFQ
+    </a>
 
+    <a href="#">
+        <i class="fa-solid fa-file-invoice-dollar"></i>
+        Quotations
+    </a>
+
+    <a href="#">
+        <i class="fa-solid fa-check"></i>
+        Approvals
+    </a>
+
+    <a href="#">
+        <i class="fa-solid fa-cart-shopping"></i>
+        Purchase Orders
+    </a>
+
+    <a href="#">
+        <i class="fa-solid fa-receipt"></i>
+        Invoices
+    </a>
+
+</div>
+
+<div class="content">
+
+    <div class="topbar">
+        <h4>Procurement & Vendor Management ERP</h4>
     </div>
+
+    {% block content %}
+    {% endblock %}
+
+</div>
 
 </body>
-
 </html>

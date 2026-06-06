@@ -4,15 +4,15 @@
 
 <div class="row">
 
-    <div class="col-md-3 mb-3">
+    <div class="col-md-3 mb-4">
 
-        <div class="card shadow border-0">
+        <div class="card shadow">
 
             <div class="card-body">
 
                 <h6>Total Vendors</h6>
 
-                <h2>12</h2>
+                <h2>{{ total_vendors }}</h2>
 
             </div>
 
@@ -20,15 +20,15 @@
 
     </div>
 
-    <div class="col-md-3 mb-3">
+    <div class="col-md-3 mb-4">
 
-        <div class="card shadow border-0">
+        <div class="card shadow">
 
             <div class="card-body">
 
                 <h6>Active RFQs</h6>
 
-                <h2>5</h2>
+                <h2>{{ total_rfqs }}</h2>
 
             </div>
 
@@ -36,15 +36,15 @@
 
     </div>
 
-    <div class="col-md-3 mb-3">
+    <div class="col-md-3 mb-4">
 
-        <div class="card shadow border-0">
+        <div class="card shadow">
 
             <div class="card-body">
 
                 <h6>Pending Approvals</h6>
 
-                <h2>3</h2>
+                <h2>0</h2>
 
             </div>
 
@@ -52,15 +52,15 @@
 
     </div>
 
-    <div class="col-md-3 mb-3">
+    <div class="col-md-3 mb-4">
 
-        <div class="card shadow border-0">
+        <div class="card shadow">
 
             <div class="card-body">
 
-                <h6>Invoices</h6>
+                <h6>Total Invoices</h6>
 
-                <h2>7</h2>
+                <h2>0</h2>
 
             </div>
 
@@ -71,16 +71,14 @@
 </div>
 
 
-<div class="row mt-4">
+<div class="row">
 
     <div class="col-md-8">
 
-        <div class="card shadow border-0">
+        <div class="card shadow">
 
             <div class="card-header">
-
-                Recent Procurement Activities
-
+                Recent Activities
             </div>
 
             <div class="card-body">
@@ -100,23 +98,17 @@
                     <tbody>
 
                         <tr>
+
                             <td>RFQ001</td>
-                            <td>Laptop Purchase</td>
+
+                            <td>Vendor Registration</td>
+
                             <td>
                                 <span class="badge bg-success">
-                                    Approved
+                                    Completed
                                 </span>
                             </td>
-                        </tr>
 
-                        <tr>
-                            <td>RFQ002</td>
-                            <td>Office Chairs</td>
-                            <td>
-                                <span class="badge bg-warning">
-                                    Pending
-                                </span>
-                            </td>
                         </tr>
 
                     </tbody>
@@ -132,30 +124,39 @@
 
     <div class="col-md-4">
 
-        <div class="card shadow border-0">
+        <div class="card shadow">
 
             <div class="card-header">
-
                 Quick Actions
-
             </div>
 
             <div class="card-body d-grid gap-2">
 
-                <button class="btn btn-primary">
+                <a href="/add_vendor"
+                   class="btn btn-primary">
+
                     Add Vendor
-                </button>
 
-                <button class="btn btn-success">
+                </a>
+
+                <a href="/vendors"
+                   class="btn btn-success">
+
+                    View Vendors
+
+                </a>
+
+                <a href="/create_rfq"
+                    class="btn btn-warning">
+
                     Create RFQ
-                </button>
 
-                <button class="btn btn-warning">
-                    Compare Quotations
-                </button>
+                </a>
 
                 <button class="btn btn-danger">
+
                     Generate Invoice
+
                 </button>
 
             </div>

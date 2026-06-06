@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="d-flex justify-content-between mb-3">
+
+    <h2>RFQ Management</h2>
+
+    <a href="/create_rfq"
+       class="btn btn-primary">
+
+        Create RFQ
+
+    </a>
+
+</div>
+
+<div class="card shadow">
+
+    <div class="card-body">
+
+        <table class="table table-hover">
+
+            <thead>
+
+                <tr>
+
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Quantity</th>
+                    <th>Deadline</th>
+                    <th>Status</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for rfq in rfqs %}
+
+                <tr>
+
+                    <td>{{ rfq.id }}</td>
+
+                    <td>{{ rfq.title }}</td>
+
+                    <td>{{ rfq.quantity }}</td>
+
+                    <td>{{ rfq.deadline }}</td>
+
+                    <td>
+
+                        <span class="badge bg-success">
+
+                            {{ rfq.status }}
+
+                        </span>
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+{% endblock %}
