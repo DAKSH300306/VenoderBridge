@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+
+    <h2>Quotation Management</h2>
+
+    <a href="/add_quotation"
+       class="btn btn-primary">
+
+        <i class="fa-solid fa-plus"></i>
+        Add Quotation
+
+    </a>
+
+</div>
+
+<div class="card shadow">
+
+    <div class="card-body">
+
+        <!-- Search -->
+
+        <input
+            type="text"
+            id="quotationSearch"
+            class="form-control mb-3"
+            placeholder="Search Quotation...">
+
+        <table class="table table-hover" id="quotationTable">
+
+            <thead class="table-light">
+
+                <tr>
+
+                    <th>ID</th>
+                    <th>RFQ ID</th>
+                    <th>Vendor ID</th>
+                    <th>Quoted Price</th>
+                    <th>Delivery Days</th>
+                    <th>Status</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for q in quotations %}
+
+                <tr>
+
+                    <td>{{ q.id }}</td>
+
+                    <td>
+                        <strong>
+                            RFQ-{{ q.rfq_id }}
+                        </strong>
+                    </td>
+
+                    <td>
+                        Vendor-{{ q.vendor_id }}
+                    </td>
+
+                    <td>
+
+                        ₹ {{ q.quoted_price }}
+
+                    </td>
+
+                    <td>
+
+                        {{ q.delivery_days }} Days
+
+                    </td>
+
+                    <td>
+
+                        <span class="badge bg-primary">
+
+                            {{ q.status }}
+
+                        </span>
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+<script>
+
+document.getElementById("quotationSearch")
+.addEventListener("keyup", function() {
+
+    let filter = this.value.toLowerCase();
+
+    let rows =
+    document.querySelectorAll("#quotationTable tbody tr");
+
+    rows.forEach(row => {
+
+        let text =
+        row.innerText.toLowerCase();
+
+        row.style.display =
+        text.includes(filter)
+        ? ""
+        : "none";
+
+    });
+
+});
+
+</script>
+
+{% endblock %}

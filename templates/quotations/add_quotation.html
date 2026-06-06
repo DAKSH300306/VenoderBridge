@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Add Quotation</h2>
+
+<div class="card shadow">
+<div class="card-body">
+
+<form method="POST">
+
+<label>RFQ</label>
+<select name="rfq_id" class="form-control mb-3">
+
+{% for rfq in rfqs %}
+<option value="{{ rfq.id }}">
+{{ rfq.title }}
+</option>
+{% endfor %}
+
+</select>
+
+<label>Vendor</label>
+<select name="vendor_id" class="form-control mb-3">
+
+{% for vendor in vendors %}
+<option value="{{ vendor.id }}">
+{{ vendor.vendor_name }}
+</option>
+{% endfor %}
+
+</select>
+
+<label>Quoted Price</label>
+<input type="number"
+       name="quoted_price"
+       class="form-control mb-3">
+
+<label>Delivery Days</label>
+<input type="number"
+       name="delivery_days"
+       class="form-control mb-3">
+
+<label>Remarks</label>
+<textarea
+name="remarks"
+class="form-control mb-3"></textarea>
+
+<button class="btn btn-success">
+Submit Quotation
+</button>
+
+</form>
+
+</div>
+</div>
+
+{% endblock %}

@@ -2,13 +2,17 @@
 
 {% block content %}
 
+<!-- Analytics Cards -->
+
 <div class="row">
 
-    <div class="col-md-3 mb-4">
+    <div class="col-lg-2 col-md-4 mb-4">
 
-        <div class="card shadow">
+        <div class="card">
 
-            <div class="card-body">
+            <div class="card-body text-center">
+
+                <i class="fa-solid fa-users fa-2x text-primary mb-2"></i>
 
                 <h6>Total Vendors</h6>
 
@@ -20,13 +24,15 @@
 
     </div>
 
-    <div class="col-md-3 mb-4">
+    <div class="col-lg-2 col-md-4 mb-4">
 
-        <div class="card shadow">
+        <div class="card">
 
-            <div class="card-body">
+            <div class="card-body text-center">
 
-                <h6>Active RFQs</h6>
+                <i class="fa-solid fa-file-contract fa-2x text-success mb-2"></i>
+
+                <h6>Total RFQs</h6>
 
                 <h2>{{ total_rfqs }}</h2>
 
@@ -36,15 +42,17 @@
 
     </div>
 
-    <div class="col-md-3 mb-4">
+    <div class="col-lg-2 col-md-4 mb-4">
 
-        <div class="card shadow">
+        <div class="card">
 
-            <div class="card-body">
+            <div class="card-body text-center">
 
-                <h6>Pending Approvals</h6>
+                <i class="fa-solid fa-file-invoice-dollar fa-2x text-warning mb-2"></i>
 
-                <h2>0</h2>
+                <h6>Quotations</h6>
+
+                <h2>{{ total_quotations }}</h2>
 
             </div>
 
@@ -52,15 +60,53 @@
 
     </div>
 
-    <div class="col-md-3 mb-4">
+    <div class="col-lg-2 col-md-4 mb-4">
 
-        <div class="card shadow">
+        <div class="card">
 
-            <div class="card-body">
+            <div class="card-body text-center">
 
-                <h6>Total Invoices</h6>
+                <i class="fa-solid fa-check fa-2x text-info mb-2"></i>
 
-                <h2>0</h2>
+                <h6>Approvals</h6>
+
+                <h2>{{ total_approvals }}</h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-2 col-md-4 mb-4">
+
+        <div class="card">
+
+            <div class="card-body text-center">
+
+                <i class="fa-solid fa-cart-shopping fa-2x text-danger mb-2"></i>
+
+                <h6>Purchase Orders</h6>
+
+                <h2>{{ total_purchase_orders }}</h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-2 col-md-4 mb-4">
+
+        <div class="card">
+
+            <div class="card-body text-center">
+
+                <i class="fa-solid fa-file-invoice fa-2x text-dark mb-2"></i>
+
+                <h6>Invoices</h6>
+
+                <h2>{{ total_invoices }}</h2>
 
             </div>
 
@@ -70,27 +116,38 @@
 
 </div>
 
+<!-- Main Content -->
 
 <div class="row">
 
-    <div class="col-md-8">
+    <!-- Recent Activities -->
 
-        <div class="card shadow">
+    <div class="col-lg-8">
 
-            <div class="card-header">
-                Recent Activities
+        <div class="card">
+
+            <div class="card-header bg-white">
+
+                <h5 class="mb-0">
+
+                    Recent Procurement Activities
+
+                </h5>
+
             </div>
 
             <div class="card-body">
 
-                <table class="table">
+                <table class="table table-hover">
 
                     <thead>
 
                         <tr>
+
                             <th>ID</th>
                             <th>Activity</th>
                             <th>Status</th>
+
                         </tr>
 
                     </thead>
@@ -101,12 +158,52 @@
 
                             <td>RFQ001</td>
 
-                            <td>Vendor Registration</td>
+                            <td>Laptop Procurement</td>
 
                             <td>
+
                                 <span class="badge bg-success">
-                                    Completed
+
+                                    Approved
+
                                 </span>
+
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>RFQ002</td>
+
+                            <td>Office Furniture Purchase</td>
+
+                            <td>
+
+                                <span class="badge bg-warning">
+
+                                    Pending
+
+                                </span>
+
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>RFQ003</td>
+
+                            <td>Network Equipment Upgrade</td>
+
+                            <td>
+
+                                <span class="badge bg-info">
+
+                                    Open
+
+                                </span>
+
                             </td>
 
                         </tr>
@@ -121,13 +218,20 @@
 
     </div>
 
+    <!-- Quick Actions -->
 
-    <div class="col-md-4">
+    <div class="col-lg-4">
 
-        <div class="card shadow">
+        <div class="card">
 
-            <div class="card-header">
-                Quick Actions
+            <div class="card-header bg-white">
+
+                <h5 class="mb-0">
+
+                    Quick Actions
+
+                </h5>
+
             </div>
 
             <div class="card-body d-grid gap-2">
@@ -139,25 +243,47 @@
 
                 </a>
 
-                <a href="/vendors"
-                   class="btn btn-success">
-
-                    View Vendors
-
-                </a>
-
                 <a href="/create_rfq"
-                    class="btn btn-warning">
+                   class="btn btn-success">
 
                     Create RFQ
 
                 </a>
 
-                <button class="btn btn-danger">
+                <a href="/add_quotation"
+                   class="btn btn-warning">
 
-                    Generate Invoice
+                    Add Quotation
 
-                </button>
+                </a>
+
+                <a href="/compare_quotations"
+                   class="btn btn-info">
+
+                    Compare Quotations
+
+                </a>
+
+                <a href="/approvals"
+                   class="btn btn-secondary">
+
+                    View Approvals
+
+                </a>
+
+                <a href="/purchase_orders"
+                   class="btn btn-dark">
+
+                    View Purchase Orders
+
+                </a>
+
+                <a href="/invoices"
+                   class="btn btn-danger">
+
+                    View Invoices
+
+                </a>
 
             </div>
 

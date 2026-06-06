@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+
+    <h2>Approval Management</h2>
+
+</div>
+
+<div class="card shadow">
+
+    <div class="card-body">
+
+        <input
+            type="text"
+            id="approvalSearch"
+            class="form-control mb-3"
+            placeholder="Search Approval...">
+
+        <table class="table table-hover" id="approvalTable">
+
+            <thead class="table-light">
+
+                <tr>
+
+                    <th>ID</th>
+                    <th>Vendor</th>
+                    <th>RFQ</th>
+                    <th>Status</th>
+                    <th>Remarks</th>
+                    <th>Action</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for approval in approvals %}
+
+                <tr>
+
+                    <td>{{ approval.id }}</td>
+
+                    <td>
+
+                        {{ approval.quotation.vendor.vendor_name }}
+
+                    </td>
+
+                    <td>
+
+                        {{ approval.quotation.rfq.title }}
+
+                    </td>
+
+                    <td>
+
+                        <span class="badge bg-success">
+
+                            {{ approval.status }}
+
+                        </span>
+
+                    </td>
+
+                    <td>
+
+                        {{ approval.remarks }}
+
+                    </td>
+
+                    <td>
+
+                        <a href="/generate_po/{{ approval.id }}"
+                           class="btn btn-primary btn-sm">
+
+                            <i class="fa-solid fa-cart-shopping"></i>
+
+                            Generate PO
+
+                        </a>
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+<script>
+
+document.getElementById("approvalSearch")
+.addEventListener("keyup", function() {
+
+    let filter = this.value.toLowerCase();
+
+    let rows =
+    document.querySelectorAll("#approvalTable tbody tr");
+
+    rows.forEach(row => {
+
+        let text =
+        row.innerText.toLowerCase();
+
+        row.style.display =
+        text.includes(filter)
+        ? ""
+        : "none";
+
+    });
+
+});
+
+</script>
+
+{% endblock %}

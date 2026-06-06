@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+
+    <h2>Invoice Management</h2>
+
+</div>
+
+<div class="card shadow">
+
+    <div class="card-body">
+
+        <input
+            type="text"
+            id="invoiceSearch"
+            class="form-control mb-3"
+            placeholder="Search Invoice...">
+
+        <table class="table table-hover" id="invoiceTable">
+
+            <thead class="table-light">
+
+                <tr>
+
+                    <th>Invoice Number</th>
+                    <th>PO Number</th>
+                    <th>Vendor</th>
+                    <th>RFQ</th>
+                    <th>Status</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for invoice in invoices %}
+
+                <tr>
+
+                    <td>
+
+                        <strong>
+
+                            {{ invoice.invoice_number }}
+
+                        </strong>
+
+                    </td>
+
+                    <td>
+
+                        {{ invoice.purchase_order.po_number }}
+
+                    </td>
+
+                    <td>
+
+                        {{ invoice.purchase_order.approval.quotation.vendor.vendor_name }}
+
+                    </td>
+
+                    <td>
+
+                        {{ invoice.purchase_order.approval.quotation.rfq.title }}
+
+                    </td>
+
+                    <td>
+
+                        <span class="badge bg-success">
+
+                            {{ invoice.status }}
+
+                        </span>
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+<script>
+
+document.getElementById("invoiceSearch")
+.addEventListener("keyup", function() {
+
+    let filter = this.value.toLowerCase();
+
+    let rows =
+    document.querySelectorAll("#invoiceTable tbody tr");
+
+    rows.forEach(row => {
+
+        let text =
+        row.innerText.toLowerCase();
+
+        row.style.display =
+        text.includes(filter)
+        ? ""
+        : "none";
+
+    });
+
+});
+
+</script>
+
+{% endblock %}
